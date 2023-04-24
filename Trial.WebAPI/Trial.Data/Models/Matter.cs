@@ -20,16 +20,9 @@ namespace Trial.Data.Models
 
         public Client Client { get; set; }
 
-        public int JuridictionId { get; set; }
+        public Attorney Attorney { get; set; }
+
         public Jurisdiction Jurisdiction { get; set; }
-
-        public int BillingAttorneyId { get; set; }
-
-        public int ResponsibleAttorneyId { get; set; }
-
-        public Attorney BillingAttorney { get; set; }
-
-        public Attorney ResponsibleAttorney { get; set; }
 
         public ICollection<Invoice> Invoices { get; set; }
 

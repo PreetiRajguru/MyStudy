@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trial.Data.Models
+﻿namespace Trial.Data.Models
 {
     public class Invoice
     {
         public int Id { get; set; }
 
-        public int RateId { get; set; }
+        public decimal HourlyRate { get; set; }
 
-        public Rate Rate { get; set; }
+        public decimal HoursWorked { get; set; }
 
-        public decimal HoursSpent { get; set; }
-
-        public decimal TotalAmount => Rate?.HourlyRate * HoursSpent ?? 0;
+        public decimal TotalAmount => HourlyRate * HoursWorked;
 
         public int MatterId { get; set; }
 
         public Matter Matter { get; set; }
 
-        public ICollection<AttorneyInvoice> AttorneyInvoices { get; set; }
+        public List<Attorney> Attorneys { get; } = new();
+
 
         public bool IsActive { get; set; }
     }

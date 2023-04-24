@@ -16,6 +16,8 @@ namespace Trial.Data.Models
 
         public Attorney Attorney { get; set; }
 
-        public ICollection<Matter> Matters { get; set; }
+        public int MatterId { get; set; }
+
+        public Matter Matter { get; set; }
     }
 }

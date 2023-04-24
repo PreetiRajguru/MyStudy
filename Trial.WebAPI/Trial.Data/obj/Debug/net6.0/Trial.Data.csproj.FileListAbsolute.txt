@@ -12,3 +12,17 @@ D:\Preeti\LastTry\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\refint\Trial.Data.dll
 D:\Preeti\LastTry\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.pdb
 D:\Preeti\LastTry\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.genruntimeconfig.cache
 D:\Preeti\LastTry\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\ref\Trial.Data.dll
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\bin\Debug\net6.0\Trial.Data.deps.json
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\bin\Debug\net6.0\Trial.Data.runtimeconfig.json
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\bin\Debug\net6.0\Trial.Data.dll
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\bin\Debug\net6.0\Trial.Data.pdb
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.csproj.AssemblyReference.cache
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.AssemblyInfoInputs.cache
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.AssemblyInfo.cs
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.csproj.CoreCompileInputs.cache
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.dll
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\refint\Trial.Data.dll
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.pdb
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\Trial.Data.genruntimeconfig.cache
+D:\Preeti\LastTry\MyStudy\Trial.WebAPI\Trial.Data\obj\Debug\net6.0\ref\Trial.Data.dll

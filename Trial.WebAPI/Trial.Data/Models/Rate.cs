@@ -10,7 +10,14 @@ namespace Trial.Data.Models
     {
         public int Id { get; set; }
         public decimal HourlyRate { get; set; }
+
+        public int AttorneyId { get; set; }
         public Attorney Attorney { get; set; }
+
+
+
+
+
         public Invoice Invoice { get; set; }
     }
 }

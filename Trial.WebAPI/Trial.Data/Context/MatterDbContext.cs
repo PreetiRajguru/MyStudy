@@ -1,17 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Trial.Data.Models;
 
 namespace Trial.Data.Context
 {
     public class MatterDbContext : DbContext
     {
+        public MatterDbContext()
+        {
+
+        }
         public MatterDbContext(DbContextOptions<MatterDbContext> options) : base(options) { }
 
         public DbSet<Client> Clients { get; set; }
@@ -34,106 +31,67 @@ namespace Trial.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //primary keys
 
-            modelBuilder.Entity<Client>()
-            .HasKey(b => b.Id)
-                .HasName("PrimaryKey_ClientId");
-
-            modelBuilder.Entity<Matter>()
-                .HasKey(b => b.Id)
-                .HasName("PrimaryKey_MatterId");
-
-            modelBuilder.Entity<Attorney>()
-            .HasKey(b => b.Id)
-               .HasName("PrimaryKey_AttorneyId");
-
-            modelBuilder.Entity<Role>()
-               .HasKey(b => b.Id)
-               .HasName("PrimaryKey_RoleId");
-
-            modelBuilder.Entity<Rate>()
-               .HasKey(b => b.Id)
-               .HasName("PrimaryKey_RateId");
-
-            modelBuilder.Entity<Jurisdiction>()
-               .HasKey(b => b.Id)
-               .HasName("PrimaryKey_JurisdictionId");
-
-            modelBuilder.Entity<Invoice>()
-               .HasKey(b => b.Id)
-               .HasName("PrimaryKey_InvoiceId");
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+                {
+                    relationship.DeleteBehavior = DeleteBehavior.Restrict;
+                }
 
 
-            //one to one
-            modelBuilder.Entity<Rate>()
-            .HasOne(e => e.Invoice)
-            .WithOne(ed => ed.Rate)
-            .HasForeignKey<Invoice>(ed => ed.RateId);
-
-
-            modelBuilder.Entity<Rate>()
-            .HasOne(e => e.Attorney)
-            .WithOne(ed => ed.Rate)
-            .HasForeignKey<Attorney>(ed => ed.RateId);
-
-
-            //many to one 
-
-            modelBuilder.Entity<Matter>()
-              .HasOne<Attorney>(o => o.BillingAttorney)
-              .WithMany(c => c.Matters)
-              .HasForeignKey(o => o.BillingAttorneyId);
-
-            modelBuilder.Entity<Matter>()
-              .HasOne<Attorney>(o => o.ResponsibleAttorney)
-              .WithMany(c => c.Matters)
-              .HasForeignKey(o => o.ResponsibleAttorneyId);
-
-            modelBuilder.Entity<Matter>()
-             .HasOne<Jurisdiction>(o => o.Jurisdiction)
-             .WithMany(c => c.Matters)
-             .HasForeignKey(o => o.JuridictionId);
 
             //one to many
+            modelBuilder.Entity<Client>()
+                    .HasMany(e => e.Matters)
+                    .WithOne(e => e.Client)
+                    .HasForeignKey(e => e.ClientId)
+                    .IsRequired();
+
+
+            modelBuilder.Entity<Attorney>()
+                  .HasMany(e => e.Roles)
+                  .WithOne(e => e.Attorney)
+                  .HasForeignKey(e => e.AttorneyId)
+                  .IsRequired();
+
+            modelBuilder.Entity<Attorney>()
+                  .HasMany(e => e.Jurisdictions)
+                  .WithOne(e => e.Attorney)
+                  .HasForeignKey(e => e.AttorneyId)
+                  .IsRequired();
 
             modelBuilder.Entity<Matter>()
-            .HasOne(b => b.Client)
-            .WithMany(a => a.Matters)
-            .HasForeignKey(b => b.ClientId);
+                  .HasMany(e => e.Invoices)
+                  .WithOne(e => e.Matter)
+                  .HasForeignKey(e => e.MatterId)
+                  .IsRequired();
 
+            //one to one 
+            modelBuilder.Entity<Matter>()
+                    .HasOne(e => e.Attorney)
+                    .WithOne(e => e.Matter)
+                    .HasForeignKey<Attorney>(e => e.MatterId)
+                    .IsRequired();
 
-            modelBuilder.Entity<Jurisdiction>()
-            .HasOne(b => b.Attorney)
-            .WithMany(a => a.Jurisdictions)
-            .HasForeignKey(b => b.AttorneyId);
+            modelBuilder.Entity<Attorney>()
+                   .HasOne(e => e.Rate)
+                   .WithOne(e => e.Attorney)
+                   .HasForeignKey<Rate>(e => e.AttorneyId)
+                   .IsRequired();
 
-
-            modelBuilder.Entity<Invoice>()
-            .HasOne(b => b.Matter)
-            .WithMany(a => a.Invoices)
-            .HasForeignKey(b => b.MatterId);
-
-            modelBuilder.Entity<Role>()
-            .HasOne(b => b.Attorney)
-            .WithMany(a => a.Roles)
-            .HasForeignKey(b => b.AttorneyId);
+            modelBuilder.Entity<Matter>()
+                  .HasOne(e => e.Jurisdiction)
+                  .WithOne(e => e.Matter)
+                  .HasForeignKey<Jurisdiction>(e => e.MatterId)
+                  .IsRequired();
 
 
             //many to many
-
-            modelBuilder.Entity<AttorneyInvoice>()
-                .HasKey(ai => new { ai.AttorneyId, ai.InvoiceId });
-
-            modelBuilder.Entity<AttorneyInvoice>()
-                .HasOne(ai => ai.Attorney)
-                .WithMany(a => a.AttorneyInvoices)
-                .HasForeignKey(ai => ai.AttorneyId);
-
-            modelBuilder.Entity<AttorneyInvoice>()
-                .HasOne(ai => ai.Invoice)
-                .WithMany(i => i.AttorneyInvoices)
-                .HasForeignKey(ai => ai.InvoiceId);
+            modelBuilder.Entity<Attorney>()
+                  .HasMany(e => e.Invoices)
+                  .WithMany(e => e.Attorneys)
+                  .UsingEntity<AttorneyInvoice>(
+                                l => l.HasOne<Invoice>().WithMany().HasForeignKey(e => e.InvoiceId),
+                                r => r.HasOne<Attorney>().WithMany().HasForeignKey(e => e.AttorneyId));
         }
     }
 }
