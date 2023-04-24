@@ -1,0 +1,17 @@
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Services.deps.json
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Services.runtimeconfig.json
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Services.dll
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Services.pdb
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Data.dll
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\bin\Debug\net6.0\Trial.Data.pdb
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.csproj.AssemblyReference.cache
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.AssemblyInfoInputs.cache
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.AssemblyInfo.cs
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.csproj.CoreCompileInputs.cache
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.csproj.CopyComplete
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.dll
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\refint\Trial.Services.dll
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.pdb
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\Trial.Services.genruntimeconfig.cache
+D:\Preeti\LastTry\Trial.WebAPI\Trial.Services\obj\Debug\net6.0\ref\Trial.Services.dll
